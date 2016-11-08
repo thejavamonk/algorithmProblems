@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Solution {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		int capsCount = 0;
 		Scanner in = new Scanner(System.in);

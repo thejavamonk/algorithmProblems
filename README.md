@@ -1,2 +1,2 @@
-# hackerrankAlgorithms
-contains my solutions to algorithms exercies on hackerrank
+# algorithmProblems
+contains my solutions various problem solving exercises

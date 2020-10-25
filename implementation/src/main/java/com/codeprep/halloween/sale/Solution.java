@@ -15,10 +15,6 @@ public class Solution {
 
 		while (sumOfCost + cost <= s) {
 			
-			if(count >= 3900) {
-				System.out.println("here");
-			}
-
 			if (sumOfCost == 0) {
 				sumOfCost = p;
 				count++;

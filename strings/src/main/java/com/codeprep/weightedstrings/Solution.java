@@ -12,7 +12,7 @@ public class Solution {
 
 		char[] letters = s.toCharArray();
 		String[] result = new String[queries.length];
-		Map<Integer, Integer> map = new HashMap();
+		Map<Integer, Integer> map = new HashMap<>();
 		int weight = 0;
 
 		for (int i = 0; i < letters.length; i++) {

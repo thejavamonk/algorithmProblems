@@ -1,12 +1,9 @@
 package com.codeprep.luckbalance;
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
 
 public class Solution {
 

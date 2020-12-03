@@ -1,7 +1,7 @@
 package com.codeprep.flatland.spacestations;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BruteForceSolution {
@@ -9,65 +9,16 @@ public class BruteForceSolution {
 	// Complete the flatlandSpaceStations function below.
 	static int flatlandSpaceStations(int n, int[] c) {
 
-		if (n == c.length) {
-			return 0;
+		Arrays.sort(c);
+		int maxDistance = c[0];
+		for (int i = 1; i < c.length; i++) {
+			int distance = (c[i] - c[i - 1]) / 2;
+			if (maxDistance < distance)
+				maxDistance = distance;
 		}
+		int lastGap = (n - 1) - c[c.length - 1];
+		return (lastGap < maxDistance) ? maxDistance : lastGap;
 
-		HashMap<Integer, Integer> spacePorts = new HashMap<>();
-		for (int i = 0; i < c.length; i++) {
-			spacePorts.put(c[i], 1);
-		}
-
-		int max = 0;
-
-		for (int j = 0; j < n; j++) {
-
-			if (spacePorts.get(j) == null) {
-				Integer behind = getLastSpaceStation(j, spacePorts);
-				Integer forward = getForwardSpaceStation(j, n, spacePorts);
-
-				int m = 0;
-				if (behind != null && forward != null) {
-					m = Math.min(Math.abs(j - behind), Math.abs(forward - j));
-					max = Math.max(m, max);
-					continue;
-
-				}
-
-				if (behind != null) {
-					m = behind;
-				} else {
-					m = forward;
-				}
-
-				max = Math.max(m, max);
-			}
-		}
-		return max;
-	}
-
-	private static Integer getLastSpaceStation(int index, HashMap<Integer, Integer> spacePorts) {
-
-		for (int i = index; i >= 0; i--) {
-			Integer port = spacePorts.get(i);
-
-			if (port != null) {
-				return i;
-			}
-		}
-		return null;
-	}
-
-	private static Integer getForwardSpaceStation(int index, int lastIndex, HashMap<Integer, Integer> spacePorts) {
-
-		for (int i = index; i <= lastIndex; i++) {
-			Integer port = spacePorts.get(i);
-
-			if (port != null) {
-				return i;
-			}
-		}
-		return null;
 	}
 
 	private static final Scanner scanner = new Scanner(System.in);
